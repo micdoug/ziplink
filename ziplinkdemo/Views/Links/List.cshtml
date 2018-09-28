@@ -1,0 +1,29 @@
+﻿@using ziplinkdemo.Models
+@model List<Link>
+
+<form action="/links/list" method="get">
+    <input class="" name="filtro" type="text" placeholder="Insira seu texto..." />
+    <button class="btn btn-info" type="submit">Pesquisar</button>
+</form>
+
+<table class="table table-bordered table-striped">
+    <tr class="table-header">
+        <th>Id</th>
+        <th>Descrição</th>
+        <th>Visitas</th>
+        <th>Última Visita</th>
+        <th>Habilitado</th>
+        <th>Url</th>
+    </tr>
+    @foreach (Link link in Model)
+    {
+        <tr>
+            <td>@link.Id</td>
+            <td>@link.Description</td>
+            <td>@link.Visits</td>
+            <td>@link.LastVisit</td>
+            <td>@link.Enabled</td>
+            <td>@link.Url</td>
+        </tr>
+    }
+</table>
